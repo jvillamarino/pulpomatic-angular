@@ -1,0 +1,12 @@
+<ng-container *ngIf="movie">
+  <div class="top-movie"
+    [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/original/'+movie?.backdrop_path +')'}">
+    <div class="p-60">
+      <h2 class="prose-xl">{{movie?.title}}</h2>
+      <q>{{movie?.overview}}</q>
+
+    </div>
+
+  </div>
+
+</ng-container>

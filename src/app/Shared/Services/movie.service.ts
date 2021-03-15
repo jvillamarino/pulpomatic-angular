@@ -10,6 +10,10 @@ import { environment as env } from '@Env/environment';
 export class MovieService {
   constructor(private _http: HttpClient) {}
 
+  public getTopMovie(): Observable<any> {
+    return this._http.get(`${env.api}/movie/top_rated`);
+  }
+
   public getMovies(): Observable<any> {
     return this._http.get<Movie[]>(
       `${env.api}/movie/popular?language=en-ES&page=1`
