@@ -13,6 +13,8 @@ export interface Movie {
   video: boolean;
   vote_average: number;
   vote_count: number;
+  favorite: boolean;
+  watchList: boolean;
 }
 
 export interface MovieCategory {

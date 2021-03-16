@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Movie } from '@Shared/Models/Interfaces/general.interface';
 import { MovieService } from '@Shared/Services/movie.service';
 import { ToastrService } from 'ngx-toastr';
@@ -10,6 +10,18 @@ import { finalize } from 'rxjs/operators';
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
+  @HostListener('window:beforeunload', ['$event'])
+  unloadNotification($event: any) {
+    this._movieService.addCacheMovie(this._movies, this._currentPage);
+  }
+
+  @HostListener("window:scroll", [])
+  onScroll(): void {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+      this.getMovies(++this._currentPage);
+    }
+  }
+
   private _movies: Movie[] = [];
   private _isLoading: boolean = false;
   private _currentPage: number = 1;
@@ -28,23 +40,44 @@ export class ListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.getMovies();
+    this.loadMovies();
   }
 
-  private getMovies() {
+  ngOnDestroy(): void {
+    this._movieService.addCacheMovie(this._movies, this._currentPage);
+  }
+
+  private loadMovies() {
+    this._movies = this._movieService.getCachedMovies();
+    if (!this._movies.length) {
+      this.getMovies();
+    }
+  }
+
+  private getMovies(page: number = 1) {
     this._isLoading = true;
     this._movieService
-      .getMovies()
+      .getMovies(page)
       .pipe(finalize(() => (this._isLoading = false)))
       .subscribe(
         ({ results, page }) => {
-          this._movies = results;
+          this._movies = this._movies.concat(results);
           this._currentPage = page;
+          this._movieService.addCacheMovie(results, page);
           this._toastr.success('', 'Films loaded correctly');
         },
         ({ error: { status_message } }) => {
           this._toastr.error(status_message, 'An error has occurred');
         }
       );
+  }
+
+  public trackByFn(index: number, item: Movie) {
+    return index;
+  }
+
+  public pushWatchList(movie: Movie, index: number) {
+    movie.watchList = !movie.watchList;
+    this._movies[index] = movie;
   }
 }
