@@ -48,7 +48,7 @@ export class ListComponent implements OnInit {
   }
 
   private loadMovies() {
-    this._movies = this._movieService.getCachedMovies();
+    ({movies: this._movies, page: this._currentPage} = this._movieService.getCachedMovies());
     if (!this._movies.length) {
       this.getMovies();
     }

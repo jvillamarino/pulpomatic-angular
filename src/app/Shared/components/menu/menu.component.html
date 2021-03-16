@@ -1,4 +1,4 @@
-<nav class="bg-blue-600">
+<nav class="bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
       <div class="flex items-center">
@@ -7,22 +7,22 @@
         </div>
         <div class="hidden md:block">
           <div class="ml-10 flex items-baseline space-x-4">
-            <a routerLink="/principal" routerLinkActive="bg-white text-blue-500"
-              class="text-gray-300 hover:bg-blue-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium cursor-pointer">Principal</a>
+            <a routerLink="/principal" routerLinkActive="bg-blue-500 text-white"
+              class="text-gray-300 hover:bg-blue-300 active:bg-blue-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium cursor-pointer">Principal</a>
 
-            <a routerLink="/watch" routerLinkActive="bg-white text-blue-500"
-              class="text-gray-300 hover:bg-blue-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium cursor-pointer">Watch
+            <a routerLink="/watch" routerLinkActive="bg-blue-500 text-white"
+              class="text-gray-300 hover:bg-blue-300 active:bg-blue-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium cursor-pointer">Watch
               list</a>
 
-            <a routerLink="/fav" routerLinkActive="bg-white text-blue-500"
-              class="text-gray-300 hover:bg-blue-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium cursor-pointer">Favorite</a>
+            <a routerLink="/fav" routerLinkActive="bg-blue-500 text-white"
+              class="text-gray-300 hover:bg-blue-300 active:bg-blue-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium cursor-pointer">Favorite</a>
           </div>
         </div>
       </div>
       <div class="-mr-2 flex md:hidden">
         <!-- Mobile menu button -->
         <button type="button" (click)="onClickMenu()"
-          class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-blue-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+          class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-blue-300 active:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
           aria-controls="mobile-menu" [attr.aria-expanded]="collapseMenu">
           <span class="sr-only">Open main menu</span>
           <!--
@@ -51,15 +51,15 @@
   <!-- Mobile menu, show/hide based on menu state. -->
   <div class="md:hidden" [ngClass]="{'hidden': !collapseMenu}" id="mobile-menu">
     <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-      <a routerLink="/" routerLinkActive="bg-white text-blue-500"
+      <a routerLink="/" routerLinkActive="bg-blue-500 text-white"
         class="text-gray-300 block px-3 py-2 rounded-md text-base font-medium cursor-pointer">Pricipal</a>
 
-      <a routerLink="/watch" routerLinkActive="bg-white text-blue-500"
-        class="text-gray-300 hover:bg-blue-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium cursor-pointer">Watch
+      <a routerLink="/watch" routerLinkActive="bg-blue-500 text-white"
+        class="text-gray-300 hover:bg-blue-300 active:bg-blue-600 hover:text-white block px-3 py-2 rounded-md text-base font-medium cursor-pointer">Watch
         list</a>
 
-      <a routerLink="/favorites" routerLinkActive="bg-white text-blue-500"
-        class="text-gray-300 hover:bg-blue-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium cursor-pointer">Favorite</a>
+      <a routerLink="/favorites" routerLinkActive="bg-blue-500 text-white"
+        class="text-gray-300 hover:bg-blue-300 active:bg-blue-600 hover:text-white block px-3 py-2 rounded-md text-base font-medium cursor-pointer">Favorite</a>
     </div>
   </div>
 </nav>
