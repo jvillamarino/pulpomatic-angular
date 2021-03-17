@@ -1,0 +1,15 @@
+{
+  "pulpomovie": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-pulpomovie-pulpomovie-215017-authRole",
+      "UnauthRoleArn": "arn:aws:iam::877182586781:role/amplify-pulpomovie-pulpomovie-215017-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::877182586781:role/amplify-pulpomovie-pulpomovie-215017-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-pulpomovie-pulpomovie-215017-deployment",
+      "UnauthRoleName": "amplify-pulpomovie-pulpomovie-215017-unauthRole",
+      "StackName": "amplify-pulpomovie-pulpomovie-215017",
+      "StackId": "arn:aws:cloudformation:us-east-1:877182586781:stack/amplify-pulpomovie-pulpomovie-215017/8314beb0-86cb-11eb-b433-0e6115325dc3",
+      "AmplifyAppId": "d1waty0uw9dglp"
+    }
+  }
+}
