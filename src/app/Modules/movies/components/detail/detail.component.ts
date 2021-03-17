@@ -34,4 +34,9 @@ export class DetailComponent implements OnInit {
       this._movie = { ...this._movie, ...cachedMovie };
     });
   }
+
+  public onClickBookmark() {
+    this._movie.watchList = !this._movie.watchList;
+    this._movieService.cacheMovieWatchList(this._movie);
+  }
 }

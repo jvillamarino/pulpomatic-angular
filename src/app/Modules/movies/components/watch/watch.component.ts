@@ -31,6 +31,6 @@ export class WatchComponent implements OnInit {
   public removeWatchList(movie: Movie, index: number) {
     this._movies.splice(index, 1);
     movie.watchList = !movie.watchList;
-    this._movieService.removeCachedWatchList(movie);
+    this._movieService.cacheMovieWatchList(movie);
   }
 }

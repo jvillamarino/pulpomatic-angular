@@ -1,3 +1,43 @@
-<pre>
-  {{movie  | json}}
-</pre>
+<div class="flex flex-col md:flex-row gap-4 p-2 md:pr-3 md:pb-0.5 md:pt-0.5 md:pl-0.5 rounded-2xl shadow" *ngIf="movie">
+  <div>
+    <img class="md:rounded-br-none md:rounded-tr-none rounded-2xl w-full"
+      src="https://image.tmdb.org/t/p/w500/{{ movie?.poster_path }}" alt="{{movie?.title}}" />
+
+  </div>
+  <div class="flex flex-col gap-2">
+    <div class="flex md:flex-row gap-1 items-baseline">
+      <h2 class="text-3xl text-indigo-500 w-full">{{movie?.title}} </h2>
+      <bookmark [active]="movie?.watchList" (onClick)="onClickBookmark()"></bookmark>
+
+    </div>
+    <article class="text-gray-400">{{movie?.overview}}</article>
+
+
+
+    <div class="flex flex-wrap gap-2">
+      <span class="font-bold">
+        Languages:
+      </span>
+      <ng-container *ngFor="let language of movie?.spoken_languages; let last = last">
+        <span> {{language?.english_name}} </span>
+        <ng-container *ngIf="!last">-</ng-container>
+      </ng-container>
+    </div>
+
+
+    <div class="flex items-center">
+      <strong>Release:</strong><small>{{movie?.release_date}}</small>
+    </div>
+
+    <div class="flex flex-wrap gap-1.5">
+      <ng-container *ngFor="let category of movie?.genres">
+        <a
+          class="cursor-default mt-auto bg-yellow-300 text-white hover:text-gray-700 hover:bg-opacity-75 transition-colors duration-200 rounded-xl font-semibold text-sm p-1.5">
+          {{category?.name}}
+        </a>
+      </ng-container>
+    </div>
+
+
+  </div>
+</div>

@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MovieCardComponent } from './movie-card.component';
-import { IconModule } from '../icon/icon.module';
 import { RouterModule } from '@angular/router';
+import { BookmarkButtonModule } from '../bookmark-button/bookmark-button.module';
 
 @NgModule({
   declarations: [MovieCardComponent],
-  imports: [CommonModule, IconModule, RouterModule],
+  imports: [CommonModule, BookmarkButtonModule, RouterModule],
   exports: [MovieCardComponent],
   providers: [],
 })

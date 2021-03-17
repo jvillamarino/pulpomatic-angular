@@ -59,11 +59,13 @@ export class MovieService {
     return this.getCachedMovies()['movies'].filter((item: Movie) => item.watchList);
   }
 
-  public removeCachedWatchList(unCachedMovie: Movie): boolean {
+  public cacheMovieWatchList(updateMovie: Movie): boolean {
     const cachedMovies: Movie[] = this.getCachedMovies()['movies'];
-    const index = cachedMovies.findIndex((movie: Movie) => movie.id === unCachedMovie.id);
-    cachedMovies[index] = unCachedMovie;
-    this.addCacheMovie(cachedMovies);
+    const index = cachedMovies.findIndex((movie: Movie) => movie.id === updateMovie.id);
+    if(index !== -1){
+      cachedMovies[index] = updateMovie;
+      this.addCacheMovie(cachedMovies);
+    }
     return true;
   }
 

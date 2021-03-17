@@ -15,9 +15,17 @@ export interface Movie {
   vote_count: number;
   favorite: boolean;
   watchList: boolean;
+  genres: MovieCategory[];
+  spoken_languages: MovieLanguage[];
 }
 
 export interface MovieCategory {
   id: number;
+  name: string;
+}
+
+export interface MovieLanguage {
+  english_name: string,
+  iso_639_1: string,
   name: string;
 }
