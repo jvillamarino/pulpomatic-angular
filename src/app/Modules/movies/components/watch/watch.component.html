@@ -1,8 +1,19 @@
-
 <div class="container">
-  <div class="flex flex-wrap justify-center md:justify-center gap-4">
-    <ng-container *ngFor="let movie of movies; index as i; trackBy: trackByFn">
-      <movie-card [movie]="movie"  (onWatchList)="removeWatchList(movie, i)"></movie-card>
-    </ng-container>
-  </div>
+  <ng-container *ngIf="movies.length; else message">
+    <div class="flex flex-wrap justify-center md:justify-center gap-4">
+      <ng-container *ngFor="let movie of movies; index as i; trackBy: trackByFn">
+        <movie-card [movie]="movie" (onWatchList)="removeWatchList(movie, i)"></movie-card>
+      </ng-container>
+    </div>
+  </ng-container>
+
 </div>
+
+<ng-template #message>
+  <div class="p-10 md:p-28 flex flex-col items-center">
+    <img src="assets/images/movies.svg" width="500px" alt="not-movies" >
+    <h1 class="text-4xl text-center">
+      No movies were added
+    </h1>
+  </div>
+</ng-template>
